@@ -27,7 +27,7 @@
     background: #14213d;
     color: #fff;
     padding: 32px;
-    height: 400px;
+    height: 450px;
  }
 
 .mort-calculator .top h2 {
@@ -113,7 +113,7 @@
     padding: 8px 32px;
     border-radius: 8px;
     margin: 26px 0px;
-    margin-left: 25px;
+   /* margin-left: 25px;*/
      
 
 }
@@ -150,7 +150,7 @@
     
     <div class="mort-calculator">
         <div class="top">
-            <h2>Z Digital Integration Hub</h2>
+            <h2>Fintech Application</h2>
         
 
             <!---<form action="predictScore" method="POST">
@@ -237,24 +237,18 @@
                 <br>
                 <h3> Account Information:</h3>
             
+                <h3>Account Number:</h3>
+                <div class="opvalue">{{accountno}}</div><br>
 
-                <tr>
-                    <td>Account No:</td>
-            
-                    <td> {{accountno }} </td>
-            
-                </tr><br><br>
+                <h3>Available Balance:</h3>
+                <div class="opvalue">{{balance}}</div>
+
+                
                 
 
-                <tr>
                 
-                    <td>Available balance:</td>
-            
-                    <td> {{balance}} </td>
-            
-                </tr>
                 {% end %}
-                <br>
+                
                 
                 
                     <input class=button type="button" value="Back" onclick="history.go(-1)">
