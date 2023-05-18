@@ -113,8 +113,8 @@ class AccountTransaction(tornado.web.RequestHandler):
         
         act=int(self.get_argument("act"))
         print(act)
-        damt=int(self.get_argument("damt"))
-        print(damt)
+        #damt=int(self.get_argument("damt"))
+        #print(damt)
 
         
        
@@ -125,19 +125,25 @@ class AccountTransaction(tornado.web.RequestHandler):
         for row in result1:
             print(row.get_object("Available_Balance"))
             print(row.get_object("Account_Number"))
+            print(row.get_object("Trans_Amount"))
+            print(row.get_object("Bank_Id"))
+            print(row.get_object("Description"))
             Account_no=row["Account_Number"]
             balance=row["Available_Balance"]
+            transamt=row["Trans_Amount"]
+            bankid=row["Bank_Id"]
+            desc=row["Description"]
 
 
-        balance1=balance+damt
-        client.sql.execute(f"UPDATE TCS001_TRANSACTION SET Available_Balance= {balance1} WHERE Account_Number={act}").result()
-        result3=client.sql.execute(f"SELECT * FROM TCS001_TRANSACTION WHERE Account_Number= {act}").result()
-        for row in result3:
-            print(row.get_object("Available_Balance"))
-            b=row["Available_Balance"]
+        #balance1=balance+damt
+        #client.sql.execute(f"UPDATE TCS001_TRANSACTION SET Available_Balance= {balance1} WHERE Account_Number={act}").result()
+        #result3=client.sql.execute(f"SELECT * FROM TCS001_TRANSACTION WHERE Account_Number= {act}").result()
+        #for row in result3:
+            #print(row.get_object("Available_Balance"))
+            #b=row["Available_Balance"]
             
 
-        self.render("static/AccountTransaction.html",Accountno=Account_no,balance=b,bloc="AccountTransaction")
+        self.render("static/AccountTransaction.html",Accountno=Account_no,balance=balance,tamt=transamt,bid=bankid,desc=desc,bloc="AccountTransaction")
        
         
 
